@@ -25,22 +25,28 @@ class ViewController: UIViewController {
     // MARK: - IB Actions
     @IBAction func buttonTapped(_ sender: UIButton) {
         
-        let name = nameTextField.text
-        let email = emailTextField.text
-        let switcher = newsSwitcher.isOn ? "успешно" : "не " // Check if the user has subscribed to the mailing list or not
+        let switcher = newsSwitcher.isOn ? "успешно" : "не" // Check if the user has subscribed to the mailing list or not
         
         // User пegnder check
         var manOrWoomen = String()
         if manOrWoomenSegmentControl.selectedSegmentIndex == 0 {
-            manOrWoomen = "н"
+            manOrWoomen = "лся"
         } else if manOrWoomenSegmentControl.selectedSegmentIndex == 1 {
-            manOrWoomen = "на"
+            manOrWoomen = "лась"
+        }
+        
+        // Checking for empty fileds of name and email user
+        guard let name = nameTextField.text, let email = emailTextField.text else { return }
+        guard !name.isEmpty && !email.isEmpty else {
+            alert(title: "Упс!", description: "Пожалуйста введите Ваше имя и имейл 😀")
+            return
         }
         
         // Alert window with confirmation
         alert(title: "Запрос", description: """
-\(name ?? ""), спасибо за Ваш запрос!
-Вы \(switcher) подписа\(manOrWoomen) на новости на Ваш email: \(email ?? "").
+\(name), спасибо за Ваш запрос!
+Ты \(switcher) подписа\(manOrWoomen) на новости.
+Ты указал email: \(email).
 """)
     }
     
@@ -75,5 +81,19 @@ extension ViewController {
         present(alert, animated: true)
     }
     
+}
+
+extension ViewController: UITextFieldDelegate {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == nameTextField {
+            emailTextField.becomeFirstResponder()
+        }
+        
+        return true
+    }
 }
 
