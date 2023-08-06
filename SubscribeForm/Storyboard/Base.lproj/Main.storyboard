@@ -64,7 +64,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XRr-WY-sRz">
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XRr-WY-sRz">
                                                         <rect key="frame" x="312" y="0.0" width="51" height="31"/>
                                                     </switch>
                                                 </subviews>
@@ -80,7 +80,7 @@
                                             <constraint firstAttribute="height" constant="30" id="t2f-YH-7L8"/>
                                         </constraints>
                                         <segments>
-                                            <segment title="Мкжчина"/>
+                                            <segment title="Мужчина"/>
                                             <segment title="Женщина"/>
                                         </segments>
                                     </segmentedControl>
@@ -124,8 +124,9 @@
                     <connections>
                         <outlet property="ageLabel" destination="u4k-6S-yl7" id="35s-3m-e1A"/>
                         <outlet property="emailTextField" destination="yOw-I4-jfz" id="EDp-VM-SnT"/>
+                        <outlet property="manOrWoomenSegmentControl" destination="T2x-aM-2NA" id="tPg-S5-cGb"/>
                         <outlet property="nameTextField" destination="eYy-L6-1Dv" id="7bl-6E-2vu"/>
-                        <outlet property="slider" destination="zDP-NA-kL4" id="fig-om-ctc"/>
+                        <outlet property="newsSwitcher" destination="XRr-WY-sRz" id="aAk-RP-dSy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
