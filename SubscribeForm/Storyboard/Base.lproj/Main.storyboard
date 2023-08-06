@@ -74,14 +74,8 @@
                                             <constraint firstItem="Apf-G3-oML" firstAttribute="centerX" secondItem="e2E-tV-p5q" secondAttribute="centerX" id="3oq-8F-Q5b"/>
                                         </constraints>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Возраст" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4k-6S-yl7">
-                                        <rect key="frame" x="0.0" y="174" width="361" height="20.333333333333343"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="T2x-aM-2NA">
-                                        <rect key="frame" x="0.0" y="219.33333333333331" width="361" height="31"/>
+                                        <rect key="frame" x="0.0" y="174" width="361" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="t2f-YH-7L8"/>
                                         </constraints>
@@ -90,8 +84,17 @@
                                             <segment title="Женщина"/>
                                         </segments>
                                     </segmentedControl>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="zDP-NA-kL4">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Возраст" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4k-6S-yl7">
+                                        <rect key="frame" x="0.0" y="229" width="361" height="20.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="zDP-NA-kL4">
                                         <rect key="frame" x="-2" y="274.33333333333331" width="365" height="36.666666666666686"/>
+                                        <connections>
+                                            <action selector="sliderForAge:" destination="BYZ-38-t0r" eventType="valueChanged" id="Oep-pK-vbb"/>
+                                        </connections>
                                     </slider>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dhy-dM-hOC">
                                         <rect key="frame" x="0.0" y="335" width="361" height="45"/>
@@ -100,6 +103,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Подписаться"/>
+                                        <connections>
+                                            <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="olQ-kg-8Kp"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -116,8 +122,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="ageLabel" destination="u4k-6S-yl7" id="35s-3m-e1A"/>
                         <outlet property="emailTextField" destination="yOw-I4-jfz" id="EDp-VM-SnT"/>
                         <outlet property="nameTextField" destination="eYy-L6-1Dv" id="7bl-6E-2vu"/>
+                        <outlet property="slider" destination="zDP-NA-kL4" id="fig-om-ctc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
