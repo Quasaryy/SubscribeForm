@@ -9,26 +9,27 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    // MARK - IB Outlets
+    // MARK: - IB Outlets
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var manOrWoomenSegmentControl: UISegmentedControl!
     @IBOutlet weak var newsSwitcher: UISwitch!
     @IBOutlet weak var ageLabel: UILabel!
     
-    // MARK - viewDidLoad
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
-    // MARK - IB Actions
+    // MARK: - IB Actions
     @IBAction func buttonTapped(_ sender: UIButton) {
         
         let name = nameTextField.text
         let email = emailTextField.text
-        let switcher = newsSwitcher.isOn ? "успешно" : "не "
+        let switcher = newsSwitcher.isOn ? "успешно" : "не " // Check if the user has subscribed to the mailing list or not
         
+        // User пegnder check
         var manOrWoomen = String()
         if manOrWoomenSegmentControl.selectedSegmentIndex == 0 {
             manOrWoomen = "н"
@@ -36,6 +37,7 @@ class ViewController: UIViewController {
             manOrWoomen = "на"
         }
         
+        // Alert window with confirmation
         alert(title: "Запрос", description: """
 \(name ?? ""), спасибо за Ваш запрос!
 Вы \(switcher) подписа\(manOrWoomen) на новости на Ваш email: \(email ?? "").
@@ -50,8 +52,9 @@ class ViewController: UIViewController {
     }
 }
 
-// MARK - Private Methods
+// MARK: - Private Methods
 extension ViewController {
+    // Method for for the correct case of age
     private func rightAge(age: Int, var1: String, var2: String, var3: String) -> String {
         let rest = age % 100
         if 11...19 ~= (rest % 10) {
@@ -64,6 +67,7 @@ extension ViewController {
         return var1
     }
     
+    // Alert window method
     private func alert(title: String, description: String) {
         let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
         let okButton = UIAlertAction(title: "Спасибо", style: .default)
