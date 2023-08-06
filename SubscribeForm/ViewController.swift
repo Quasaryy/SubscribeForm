@@ -29,10 +29,13 @@ class ViewController: UIViewController {
         
         // User пegnder check
         var manOrWoomen = String()
+        var gender = String()
         if manOrWoomenSegmentControl.selectedSegmentIndex == 0 {
             manOrWoomen = "лся"
+            gender = ""
         } else if manOrWoomenSegmentControl.selectedSegmentIndex == 1 {
             manOrWoomen = "лась"
+            gender = "a"
         }
         
         // Checking for empty fileds of name and email user
@@ -46,7 +49,7 @@ class ViewController: UIViewController {
         alert(title: "Запрос", description: """
 \(name), спасибо за Ваш запрос!
 Ты \(switcher) подписа\(manOrWoomen) на новости.
-Ты указал email: \(email).
+Ты указал\(gender) email: \(email).
 """)
     }
     
